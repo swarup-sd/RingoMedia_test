@@ -1,0 +1,27 @@
+﻿@model Department
+@{
+    ViewBag.Title = Model.DepartmentName;
+}
+
+<h2>@Model.DepartmentName</h2>
+<img src="@Model.DepartmentLogo" alt="@Model.DepartmentName Logo" />
+
+<h3>Parent Departments</h3>
+<ul>
+    @foreach (var parent in ViewBag.ParentDepartments as List<Department>)
+    {
+        <li>@parent.DepartmentName</li>
+    }
+</ul>
+
+<h3>Sub-Departments</h3>
+<ul>
+    @foreach (var sub in Model.SubDepartments)
+    {
+        <li>
+            <a href="@Url.Action("Index", new { id = sub.DepartmentId })">
+                @sub.DepartmentName
+            </a>
+        </li>
+    }
+</ul>

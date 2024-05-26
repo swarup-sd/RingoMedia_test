@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Reminder>
+
+<h2>Reminders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Recipient Email</th>
+            <th scope="col">IsSent</th>
+            <th scope="col">Scheduled At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ReminderId</th>
+                <th >@item.Title</th>
+                <th >@item.ToEmail</th>
+                <th>@item.EmailSent</th>
+                <th>@item.DateTime</th>
+            </tr>
+        }
+    </tbody>
+</table>
